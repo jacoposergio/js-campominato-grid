@@ -34,12 +34,25 @@ console.log(gameMaxRange);
 // ! il computer genera 16 numeri casuali nel range prescelto
 
 // ! creo l 'array vuoto da riempire
-const randomNumbersArray = [];
-// ! uso il ciclo while per mettere la condizione che deve scorrere finchè non trova solo numeri diversi
-while (randomNumbersArray.length < 16){
-    const randomNumbers = Math.floor(Math.random() * 100) + 1;
-    if(!randomNumbersArray.includes(randomNumbers)){
-        randomNumbersArray.push(randomNumbers);
+const bombsArray = [];
+// ! uso il ciclo while per mettere la condizione che deve scorrere finchè non trova solo numeri diversi,
+// ! gameMaxRange darà il range del livello scelto
+while (bombsArray.length < 16){
+    const randomNumbers = Math.floor(Math.random() * gameMaxRange) + 1;
+    if(!bombsArray.includes(randomNumbers)){
+        bombsArray.push(randomNumbers);
     }
-    console.log("array",randomNumbersArray);
+    console.log("array",bombsArray);
+}
+
+// ! creo l'array da riempire con i numeri dell utente
+const userNumberArray = [];
+while(userNumberArray.length < 16 ){
+
+ const userNumber = parseInt(prompt('Dimmi un numero'));
+ if(!bombsArray.includes(userNumber)){
+    userNumberArray.push(randomNumbers);
+ }else if (bombsArray.includes(userNumber)){
+   alert('hai perso')
+ }
 }
