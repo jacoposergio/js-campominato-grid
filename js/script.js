@@ -27,7 +27,7 @@ switch(difficulty) {
         gameMaxRange = 49;
         break;
     default:
-        alert('Dato che non sai scrivere scelgo per te il livello 3 ') ;
+        alert('Dato che non sai scrivere scelgo per te il livello 3 😈') ;
         gameMaxRange = 49;
 }
 console.log(gameMaxRange);
@@ -48,18 +48,24 @@ while (bombsArray.length < 5){
 
 // ! creo l'array da riempire con i numeri dell utente
 
-let GameWinner = 5;
+let GameWinner = 5;   // ! Quanti tentativi deve ingarrare l'utente per vincere
 const userNumberArray = [];
 while(userNumberArray.length < GameWinner ){
 
     const userNumber = parseInt(prompt('Dimmi un numero'));
     // ! se i numeri non sono già nell'array della bomba, li pusho nel array dei numeri
-    if(!bombsArray.includes(userNumber)){
+   // ! if(il numero non è nell'array delle bombe) && ! non è già stato scelto && !(e non è sopra il range) e non è 0)
+    if(!bombsArray.includes(userNumber) && !userNumberArray.includes(userNumber) && !(userNumber > gameMaxRange) && !(userNumber < 1)){
         userNumberArray.push(userNumber);
     // ! se i numeri sono nell'array della bomba , gioco finisce e esce il messaggio 
     }else if (bombsArray.includes(userNumber)){
-    alert('hai perso, hai totalizzato '+ userNumberArray.length + ' punti');
+    alert('Hai perso, hai totalizzato '+ userNumberArray.length + ' punti');
     break;
     }
     console.log("user number array",userNumberArray);
+}
+
+// ! se la lunghezza dell'array dei numeri è uguale al limite, l'utente ha vinto
+if (userNumberArray.length === GameWinner){
+    alert('Hai vinto');
 }
