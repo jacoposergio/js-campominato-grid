@@ -13,22 +13,33 @@
 let difficulty = prompt('Seleziona una difficoltà');
 console.log("",difficulty);
 
-// ! con lo switch imposto i range di difficoltà per i livelli da 1 a 3
+// ! con lo switch imposto i range di difficoltà per i da 1 a 3
 
-let gameRange;
+let gameMaxRange;
 switch(difficulty) {
     case '1':
-        gameRange = 'ciao';
+        gameMaxRange = 100;
         break;
     case '2':
-        gameRange = 'buongiorno';
+        gameMaxRange = 81;
         break;
     case '3':
-        gameRange = 'buonasera';
+        gameMaxRange = 49;
         break;
     default:
-        gameRange = alert('Refresha la pagina e inserisci un valore da 1 a 3') ;
+        gameMaxRange = alert('Refresha la pagina e inserisci un valore da 1 a 3') ;
 }
+console.log(gameMaxRange);
 
-console.log(gameRange);
+// ! il computer genera 16 numeri casuali nel range prescelto
 
+// ! creo l 'array vuoto da riempire
+const randomNumbersArray = [];
+// ! uso il ciclo while per mettere la condizione che deve scorrere finchè non trova solo numeri diversi
+while (randomNumbersArray.length < 16){
+    const randomNumbers = Math.floor(Math.random() * 100) + 1;
+    if(!randomNumbersArray.includes(randomNumbers)){
+        randomNumbersArray.push(randomNumbers);
+    }
+    console.log("array",randomNumbersArray);
+}
