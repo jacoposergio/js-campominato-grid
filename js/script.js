@@ -10,7 +10,7 @@
 // TODO| Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha scelto un numero che non era una bomba.
 
 // ! chiedo all'utente di inserire la difficoltà
-let difficulty = prompt('Seleziona una difficoltà');
+let difficulty = prompt('Seleziona una difficoltà (1, 2 o 3)');
 console.log("",difficulty);
 
 // ! con lo switch imposto i range di difficoltà per i da 1 a 3
