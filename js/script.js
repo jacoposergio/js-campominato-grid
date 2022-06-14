@@ -70,4 +70,5 @@ while(userNumberArray.length < GameWinner ){
 // ! se la lunghezza dell'array dei numeri è uguale al limite, l'utente ha vinto
 if (userNumberArray.length === GameWinner){
     alert('Hai vinto');
+    document.getElementById('numeri_bombe').innerHTML += 'Le bombe erano sui numeri ' + bombsArray;
 }
