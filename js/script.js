@@ -46,13 +46,16 @@ while (bombsArray.length < 16){
 }
 
 // ! creo l'array da riempire con i numeri dell utente
+
+// let gameLost;
 const userNumberArray = [];
-while(userNumberArray.length < 16 ){
+while(userNumberArray.length < 16 /*&& gameLost === lost*/){
 
  const userNumber = parseInt(prompt('Dimmi un numero'));
  if(!bombsArray.includes(userNumber)){
-    userNumberArray.push(randomNumbers);
+    userNumberArray.push(userNumber);
  }else if (bombsArray.includes(userNumber)){
-   alert('hai perso')
+   alert('hai perso');
+   break;
  }
 }
