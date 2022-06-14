@@ -27,7 +27,8 @@ switch(difficulty) {
         gameMaxRange = 49;
         break;
     default:
-        gameMaxRange = alert('Refresha la pagina e inserisci un valore da 1 a 3') ;
+        alert('Dato che non sai scrivere scelgo per te il livello 3 ') ;
+        gameMaxRange = 49;
 }
 console.log(gameMaxRange);
 
@@ -37,7 +38,7 @@ console.log(gameMaxRange);
 const bombsArray = [];
 // ! uso il ciclo while per mettere la condizione che deve scorrere finchè non trova solo numeri diversi,
 // ! gameMaxRange darà il range del livello scelto
-while (bombsArray.length < 16){
+while (bombsArray.length < 5){
     const randomNumbers = Math.floor(Math.random() * gameMaxRange) + 1;
     if(!bombsArray.includes(randomNumbers)){
         bombsArray.push(randomNumbers);
@@ -47,15 +48,18 @@ while (bombsArray.length < 16){
 
 // ! creo l'array da riempire con i numeri dell utente
 
-// let gameLost;
+let GameWinner = 5;
 const userNumberArray = [];
-while(userNumberArray.length < 16 /*&& gameLost === lost*/){
+while(userNumberArray.length < GameWinner ){
 
- const userNumber = parseInt(prompt('Dimmi un numero'));
- if(!bombsArray.includes(userNumber)){
-    userNumberArray.push(userNumber);
- }else if (bombsArray.includes(userNumber)){
-   alert('hai perso');
-   break;
- }
+    const userNumber = parseInt(prompt('Dimmi un numero'));
+    // ! se i numeri non sono già nell'array della bomba, li pusho nel array dei numeri
+    if(!bombsArray.includes(userNumber)){
+        userNumberArray.push(userNumber);
+    // ! se i numeri sono nell'array della bomba , gioco finisce e esce il messaggio 
+    }else if (bombsArray.includes(userNumber)){
+    alert('hai perso, hai totalizzato '+ userNumberArray.length + ' punti');
+    break;
+    }
+    console.log("user number array",userNumberArray);
 }
