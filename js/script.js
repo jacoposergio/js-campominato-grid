@@ -52,7 +52,7 @@ let GameWinner = 5;   // ! Quanti tentativi deve ingarrare l'utente per vincere
 const userNumberArray = [];
 while(userNumberArray.length < GameWinner ){
 
-    const userNumber = parseInt(prompt('Dimmi un numero'));
+    const userNumber = parseInt(prompt('Dimmi un numero da 1 a ' + gameMaxRange));
     // ! se i numeri non sono già nell'array della bomba, li pusho nel array dei numeri
    // ! if(il numero non è nell'array delle bombe) && ! non è già stato scelto && !(e non è sopra il range) e non è 0)
     if(!bombsArray.includes(userNumber) && !userNumberArray.includes(userNumber) && !(userNumber > gameMaxRange) && !(userNumber < 1)){
@@ -60,7 +60,9 @@ while(userNumberArray.length < GameWinner ){
     // ! se i numeri sono nell'array della bomba , gioco finisce e esce il messaggio 
     }else if (bombsArray.includes(userNumber)){
     alert('Hai perso, hai totalizzato '+ userNumberArray.length + ' punti');
+     document.getElementById('numeri_bombe').innerHTML += 'Le bombe erano sui numeri ' + bombsArray;
     break;
+    
     }
     console.log("user number array",userNumberArray);
 }
